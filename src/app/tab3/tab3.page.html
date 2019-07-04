@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="ion-text-center">
+      Perfil Y Puntajes
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="salir()">
+        <ion-icon color="danger" slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card color="dark">
+    <ion-card-header>
+      <ion-card-title>{{usuarioStorage.usuario}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label style="font-size: 12px;">Mi ultimo Puntaje: {{usuarioStorage.Preguntas.puntaje}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+    <!--<div class="container">-->
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <!--<th scope="col">#</th>-->
+                <th scope="col">Jugador</th>
+                <th scope="col">Puntaje</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of puntajesJugadores | async" >
+                <!--<th scope="row">1</th>-->
+                <td>{{item.Nombre}}</td>
+                <td>{{item.Puntaje}}</td>
+                <td>{{item.Fecha.split('-')[0]}}</td>
+                <td>{{item.Fecha.split('-')[1]}}</td>
+              </tr>
+            </tbody>
+        </table>
+    <!--</div>-->
+</ion-content>

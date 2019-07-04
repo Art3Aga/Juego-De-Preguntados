@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Resultado</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content padding>
+    <ion-card-header color="success">
+      <ion-card-title>{{usuario.usuario}}, Su Puntaje actual es de: {{puntaje}}</ion-card-title>      
+    </ion-card-header>
+    <br><br><br>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <ion-button color="dark" (click)="play_denuevo()">
+            Volver a Jugar
+          </ion-button>
+        </ion-col>
+        <ion-col size="4"></ion-col>
+        <ion-col size="4">
+          <ion-button color="dark" (click)="verPerfil()">
+            Ver Puntajes
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>

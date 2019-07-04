@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-toolbar color="dark">
+      <ion-title class="ion-text-center">
+        {{usuario.usuario}}
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-label>{{puntaje}}</ion-label>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <!--MENSAJE DE GAME OVER-->
+    <!--<ion-slides *ngIf="showButtonFin == true"  [options]="{allowSlidePrev:false, allowSlideNext:false}">
+      <ion-slide>
+        <ion-button (click)="volverJugar()" color="{{gameOverColor}}">
+          {{mensajeGameOver}}
+        </ion-button>
+        <br>
+        <ion-label text-wrap>Click para volver a Jugar</ion-label>
+      </ion-slide>
+    </ion-slides>-->
+    <!--PREGUNTAS-->     
+    <!--<div class="preguntas" *ngIf="showButtonFin == false" >-->
+        <ion-card color="dark" *ngFor="let pregunta of preguntas | async"> 
+            <ion-card-header>
+              <ion-card-title>{{pregunta}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+            </ion-card-content>
+          </ion-card>
+          <br>
+        
+          <ion-list>
+            <ion-button disabled="{{disabled}}" color="dark" *ngFor="let respuesta of respuestas | async" expand=block (click)="contestar(respuesta)">
+              {{respuesta}} <br>
+            </ion-button>  
+          </ion-list>  
+        
+          <!--INCORRECTO-->
+          <ion-grid>
+            <br><br>
+            <ion-row>
+              <ion-col size="2"></ion-col>
+                <ion-col size="12">
+                  <ion-button *ngIf="texto!=''" color="{{color}}" expand="block">{{texto}}</ion-button>
+                </ion-col> 
+                <ion-col size="2"></ion-col>
+            </ion-row>
+          </ion-grid>  
+          <!--SIGUIENTE-->
+          <ion-grid>
+              <br><br>
+              <ion-row>
+                <ion-col size="2"></ion-col>
+                  <ion-col size="8">
+                    <ion-button (click)="siguiente()" *ngIf="texto!=''" color="warning" expand="block">Siguiente</ion-button>
+                  </ion-col> 
+                  <ion-col size="2"></ion-col>
+              </ion-row>
+            </ion-grid> 
+    <!--</div>-->
+    
+  </ion-content>
